@@ -1,6 +1,7 @@
 package com.example.springbootwebadmin.controller;
 
 import com.example.springbootwebadmin.bean.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @Controller
+@Slf4j
 public class IndexController {
 
     /**
@@ -40,13 +42,14 @@ public class IndexController {
      */
     @GetMapping("/index.html")
     public String indexPage(HttpSession session,Model model){
-        Object user = session.getAttribute("loginUser");
-        if (user != null){
-            return "index";
-        }else{
-            model.addAttribute("msg","Pls login");
-            return "login";
-        }
-
+        log.info("當前方式是:{}","indexPage");
+//        Object user = session.getAttribute("loginUser");
+//        if (user != null){
+//            return "index";
+//        }else{
+//            model.addAttribute("msg","Pls login");
+//            return "login";
+//        }
+        return "index";
     }
 }
