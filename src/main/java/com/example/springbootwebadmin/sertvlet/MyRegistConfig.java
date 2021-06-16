@@ -13,7 +13,7 @@ import java.util.Arrays;
  * 2. DispatcherServlet --> /
  * 3.
  */
-@Configuration()
+//@Configuration
 public class MyRegistConfig {
 
     @Bean
