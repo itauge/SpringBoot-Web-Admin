@@ -15,7 +15,6 @@ spring:
 
     druid:
       filters: wall,stat
-      stat.
       aop-patterns: com.example.springboot.*
       stat-view-servlet:
         enabled: true
