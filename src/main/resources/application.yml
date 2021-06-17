@@ -28,9 +28,17 @@ spring:
         url-pattern: /*
 
 
-
-
   jdbc:
     template:
       query-timeout: 3
 
+#mybatis:
+#  config-location: classpath:mybatis-config.xml
+#  mapper-locations: classpath:com/example/springbootwebadmin/mapper/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+mybatis-plus:
+  mapper-locations: classpath:com/example/springbootwebadmin/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

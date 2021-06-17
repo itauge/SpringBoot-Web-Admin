@@ -1,7 +1,12 @@
 package com.example.springbootwebadmin.controller;
 
+import com.example.springbootwebadmin.bean.Book;
+import com.example.springbootwebadmin.bean.City;
 import com.example.springbootwebadmin.bean.User;
+import com.example.springbootwebadmin.service.BookService;
+import com.example.springbootwebadmin.service.CityService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -12,6 +17,32 @@ import javax.servlet.http.HttpSession;
 @Controller
 @Slf4j
 public class IndexController {
+
+    @Autowired
+    BookService bookService;
+
+    @Autowired
+    CityService cityService;
+
+    @ResponseBody
+    @GetMapping("/book")
+    public Book getById(@RequestParam("id") Integer id){
+        return bookService.getById(id);
+    }
+
+    @ResponseBody
+    @GetMapping("/city")
+    public City getById(@RequestParam("id") Long id){
+        return cityService.getById(id);
+    }
+
+    @ResponseBody
+    @PostMapping("/city")
+    public City insertData(City city){
+        cityService.insertData(city);
+        return city;
+    }
+
 
     /**
      * 来登錄頁
