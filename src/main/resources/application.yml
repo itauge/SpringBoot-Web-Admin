@@ -42,3 +42,9 @@ mybatis-plus:
   mapper-locations: classpath:com/example/springbootwebadmin/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #以web方式暴露所有
